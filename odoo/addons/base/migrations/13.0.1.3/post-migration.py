@@ -15,6 +15,8 @@ _logger = logging.getLogger(__name__)
 
 
 def fix_res_partner_image(env):
+    _logger.warning("Skipping `fix_res_partner_image` since attachments are not available during migration")
+    return
     ResPartner = env['res.partner']
     attachments = env['ir.attachment'].search([
         ('res_model', '=', 'res.partner'),
